@@ -118,7 +118,7 @@ void btree::display(){ //Public
 }
 
 
-int main(){ //I hope this works... I think it did...
+int main(){ //I hope this works...
   int x,n;
   btree tree;
   std::cout << "Number of nodes in the tree: ";
