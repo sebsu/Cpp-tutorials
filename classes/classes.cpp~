@@ -1,0 +1,17 @@
+#include <iostream>
+
+using namespace std;
+
+class Computer{
+
+public:
+  Computer(); //Constructor
+  ~Computer();//Destructor
+  void setSpeed(int p);
+  int readSpeed();
+
+protected:  //Only accessible from within the class
+  int processorspeed;
+
+};
+
