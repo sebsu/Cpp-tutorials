@@ -5,35 +5,26 @@ using namespace std;
 
 void calc_same(int jack, int jill){
   int cd;
-  int same, jack_i = 0; //jack's index
+  int same = 0; 
+  int jack_i = 0; //jack's index
   vector<int> jack_cds;
-  bool in_jack_coll;
-  jack_cds.assign(jack, 0);
+  jack_cds.reserve(jack);
 
-  for(int i=0; i<jack; i++){
+  for(int i=0; i<jack; ++i){
     cin >> jack_cds[i];
   }
   
-  for(int i=0; i<jill; i++){ //For as many cds as Jill have
+  for(int i=0; i<jill; ++i){ //For as many cds as Jill have
     cin >> cd;               // find what cd it is
-    in_jack_coll = jack_i<jack_cds.size()-1;
-    if(cd==jack_cds[jack_i]){//compare it with Jack's
-      same++;                // and increment if the same.
-      if(in_jack_coll){//As long as we are in Jack's cd collection
-	jack_i++;                  // increment the index.
-      }
-    }else{ //If not the same go through if cd is > Jack's latest.
-      while(cd>jack_cds[jack_i] && in_jack_coll){
-	jack_i++; //Increment until we find it or come to end of collection.
-      }
-      if(cd==jack_cds[jack_i]){
-	same++;
-	if(in_jack_coll){
-	  jack_i++;
-	}
-      }
+    while(cd>jack_cds[jack_i] && jack_i<jack-1){
+      ++jack_i; //Increment until we find it or come to end of collection.
     }
-    
+    if(cd==jack_cds[jack_i]){//compare it with Jack's
+      ++same;                // and increment if the same.
+      if(jack_i<jack-1){//As long as we are in Jack's cd collection
+	++jack_i;                  // increment the index.
+      }
+    }    
   }
 
   cout << same << endl;
