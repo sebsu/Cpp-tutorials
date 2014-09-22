@@ -5,6 +5,8 @@ struct node{
   node *next;
 };
 
+typedef node* nodep; //Replace node* with nodep. 
+
 /* Dummy main
 int main(){
   node *root; //First node. Remains the same.
@@ -19,8 +21,8 @@ int main(){
   
 int main(){
   
-  node *root;     //This won't change, or we would lose the list in memory
-  node *conductor;//This will point to each node as it traverses the list
+  nodep root;     //This won't change, or we would lose the list in memory
+  nodep conductor;//This will point to each node as it traverses the list
 
   root = new node;//root actually points to something!
   root->next = 0;
