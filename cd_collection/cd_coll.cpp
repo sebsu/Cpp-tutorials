@@ -33,9 +33,8 @@ void calc_same(int jack, int jill){
 
 int main (){
   int jack, jill;
-  double begin;
+  double begin = (double)clock()*1000;
   while(cin >> jack && cin >> jill && !(jack==0 && jill==0)){
-    begin = (double)clock()*1000;
     calc_same(jack, jill);
   }
   cout << "\n" << ((double)clock()*1000-begin)/CLOCKS_PER_SEC;
