@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-//#define PRINT_TIME
+#define PRINT_TIME
 
 enum TokenizerMode {
     WHITESPACE,

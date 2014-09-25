@@ -1,0 +1,43 @@
+#include <iostream>
+#include <vector>
+#include <limits>
+#include <cstdlib>
+using namespace std;
+
+int main(){
+  int cases = 1;
+  for(int l=0; l<3; ++l){
+    int n;
+    cin >> n;
+    vector<int> m;
+    m.reserve(n);
+    for(int i=0; i<n; ++i){
+      m[i] = cin.get();
+      cin >> m[i];
+    }
+    int queries;
+    cin >> queries;
+    int query;
+    cout <<  "Case " << cases << ":\n";
+    for(int i=0; i<queries; ++i){
+      cin >> query;
+      int closest = numeric_limits<int>::max();
+      for(int j=0; j<n; ++j){
+	for(int k=0; k<n; ++k){
+	  if(k==j){
+	    continue;
+	  }
+	  int sum = m[j]+m[k];
+	  cout << abs(query-sum) << " ";
+	  if(abs(query-sum) < closest){
+	    closest = sum;
+	  }
+	}
+      }
+      cout << "Closest sum to " << query << " is " << closest << ".\n";
+    }
+    ++cases;
+  }
+
+  return 0;
+}
