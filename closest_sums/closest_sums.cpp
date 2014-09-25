@@ -8,19 +8,19 @@ int main(){
   ios_base::sync_with_stdio(false);
   int cases = 1;
   int n;
-  while(cin >> n){
-    vector<int> m;
-    m.reserve(n);
+  while(cin >> n){ //Every time we get a new case
+    vector<int> sums; //The vector where we store the int to sum
+    sums.reserve(n);  //Reserve for speed
     for(int i=0; i<n; ++i){
-      cin >> m[i];
+      cin >> sums[i]; //Save the integers
     }
     int queries;
-    cin >> queries;
-    cout <<  "Case " << cases << ":\n";
-    for(int i=0; i<queries; ++i){
-      int query;
+    cin >> queries; //Get the number of queries
+    cout <<  "Case " << cases << ":\n"; //Some ugly print
+    for(int i=0; i<queries; ++i){ //Loop while we still have queries
+      int query; //What we should aim for
       cin >> query;
-      int closest = numeric_limits<int>::max();
+      int closest = 10000000; //A maximum value
       for(int j=0; j<n; ++j){
 	if(closest == query){
 	  break;
@@ -29,9 +29,12 @@ int main(){
 	  if(k==j){
 	    continue;
 	  }
-	  int sum = m[j]+m[k];
+	  int sum = sums[j]+sums[k];
 	  if(abs(query-sum) < abs(query-closest)){
 	    closest = sum;
+	    if(closest == query){
+	      break;
+	    }
 	  }
 	}
       }
