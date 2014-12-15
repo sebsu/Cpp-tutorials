@@ -1,3 +1,4 @@
+#include <iostream>
 #include "SDL/SDL.h"
 
 int main(int argc, char *argv[]){
@@ -9,7 +10,8 @@ int main(int argc, char *argv[]){
   hello = SDL_LoadBMP("hello.bmp");
   SDL_BlitSurface( hello, NULL, screen, NULL );
   SDL_Flip( screen );
-  SDL_Delay( 2000 );
+  //SDL_Delay( 2000 );
+  std::cin.get();
   SDL_FreeSurface( hello );
   SDL_Quit();
   return 0;

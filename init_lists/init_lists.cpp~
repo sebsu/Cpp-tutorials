@@ -1,0 +1,20 @@
+#include <iostream>
+
+class foo{
+public:
+  foo(){
+    std::cout << "foo construct" << std::endl;
+  }
+};
+
+class bar : public foo{
+public:
+  bar(){
+    std::cout << "bar construct" << std::endl;
+  }
+};
+
+int main(){
+  bar bar;
+  return 0;
+}
