@@ -4,8 +4,8 @@
 # exclude patterns (uncomment them if you want to use them):
  *.[oa]
  *~
- a.out
+ *.out
  #*#
- */a.out
+ */*.out
  */*~
 
